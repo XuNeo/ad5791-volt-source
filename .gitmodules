@@ -1,0 +1,12 @@
+[submodule "firmware/src/3rdparty/printf"]
+	path = firmware/src/3rdparty/printf
+	url = https://gitlab.com/XuNeo/printf.git
+[submodule "firmware/src/3rdparty/ulog-noos"]
+	path = firmware/src/3rdparty/ulog-noos
+	url = https://gitlab.com/XuNeo/ulog-noos.git
+[submodule "firmware/src/3rdparty/fifo"]
+	path = firmware/src/3rdparty/fifo
+	url = https://gitlab.com/XuNeo/fifo.git
+[submodule "firmware/src/3rdparty/ush"]
+	path = firmware/src/3rdparty/ush
+	url = https://gitlab.com/XuNeo/ush.git

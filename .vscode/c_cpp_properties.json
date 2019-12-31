@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "name": "stm32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "C:/Keil_v5/ARM/ARMCC/**",
+                "C:/Keil_v5/ARM/ARMCC/include"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE",
+                "STM32F070x6",
+                "USE_STDPERIPH_DRIVER"
+            ],
+            "compilerPath": "C:/msys64/usr/bin/gcc.exe",
+            "cStandard": "c11",
+            "intelliSenseMode": "gcc-x64"
+        }
+    ],
+    "version": 4
+}

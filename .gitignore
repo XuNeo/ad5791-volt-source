@@ -1,3 +1,23 @@
+Obj/
+*.o
+*.map
+*.lst
+*.crf
+*.d
+*.o
+*.csv
+*.txt
+*.ini
+*.uvguix.*
+DebugConfig/
+RTE/
+OUT/
+*.hex
+*.bin
+*.elf
+*.list
+*.scvd
+
 # Prerequisites
 *.d
 

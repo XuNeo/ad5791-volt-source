@@ -1,0 +1,15 @@
+{
+    "files.associations": {
+        "hmi.h": "c",
+        "displed.h": "c",
+        "key.h": "c",
+        "ad5791.h": "c",
+        "stm32f0xx.h": "c",
+        "adt7420.h": "c",
+        "stdint.h": "c",
+        "ezled-host.h": "c",
+        "stm32f0xx_flash.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "EnabledIfIncludesResolve",
+    "editor.tabSize": 2
+}
