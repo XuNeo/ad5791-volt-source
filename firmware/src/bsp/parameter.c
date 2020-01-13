@@ -24,7 +24,7 @@
 */
 const struct _parameter default_parameter = {
   .signature = VALID_SIGNATURE,
-  .refer_voltage = 10,
+  .refer_voltage = 0,
   .hw_info = HW_INFO(90, 0xb, 0x10),
   .power_up_count = 0,
 };

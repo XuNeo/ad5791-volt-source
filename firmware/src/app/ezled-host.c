@@ -22,6 +22,7 @@
 #define CMD_SAVE_SETTING    7       //save current settings as default settings.
 #define CMD_ADD_FONT        8       //add temp font.
 #define CMD_SET_HLIGHT      9       //set which led is to highlight.
+#define CMD_SET_ADDR        0xa0    //set new address.
 
 #define LEDSEGA     0x01
 #define LEDSEGB     0x02
@@ -86,15 +87,25 @@ void ezled_print(const char *pstr){
     ezled_send_cmd(0x02, CMD_PRINT, " ", 1);
 }
 
-/**
- * Not work...
-*/
 void ezled_add_font(char c, uint8_t font){
   char buff[10];
   buff[0] = c;
   buff[1] = font;
   ezled_send_cmd(0x02, CMD_ADD_FONT, buff, 2);
   ezled_send_cmd(0x01, CMD_ADD_FONT, buff, 2);
+}
+
+void ezled_set_address(uint8_t addr_left, uint8_t addr_right){
+  char buff[10];
+  buff[0] = 0x01;
+  ezled_send_cmd(addr_left, CMD_SET_ADDR, buff, 1);
+  buff[0] = 0x02;
+  ezled_send_cmd(addr_right, CMD_SET_ADDR, buff, 1);
+}
+
+void ezled_save_settings(void){
+  ezled_send_cmd(0x01, CMD_SAVE_SETTING, 0, 0);
+  ezled_send_cmd(0x02, CMD_SAVE_SETTING, 0, 0);
 }
 
 /**
@@ -269,3 +280,24 @@ static int32_t ush_ezled_print(uint32_t argc, char **argv){
   return 0;
 }
 USH_REGISTER(ush_ezled_print, print, print to led);
+
+static int32_t ush_ezled_set_addr(uint32_t argc, char **argv){
+  if(argc < 3) return 0;
+  ush_num_def numtype;
+  uint32_t value;
+  if(ush_str2num(argv[1], strlen(argv[1]), &numtype, &value) == ush_error_ok){
+    uint8_t left = value;
+    if(ush_str2num(argv[2], strlen(argv[2]), &numtype, &value) == ush_error_ok){
+      uint8_t right = value;
+      printf("set led address, left:%02x, right:%02x\n", left, right);
+      ezled_set_address(left, right);
+      ezled_save_settings();
+    }
+	}
+	else{
+		printf("Error in arguments");
+	}
+  return 0;
+}
+USH_REGISTER(ush_ezled_set_addr, ledaddr, set left and right led address);
+
